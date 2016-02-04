@@ -51,6 +51,10 @@ var reducer = reduman()
     .otherwise(function (state, action) .. );
 ```
 
+New (version 0.0.2): if you use a simple value as first argument to `when`, the action
+is accepted if it is a simple value equals to the argument value, or if the action is an object with 
+a `type` property equals to that argument.
+
 You can use a predicate function with signature (action) => boolean:
 
 ```
@@ -66,6 +70,7 @@ TBD
 ## Versions
 
 - 0.0.1 Published
+- 0.0.2 Published, filter by implicit type property
 
 ## Contribution
 
