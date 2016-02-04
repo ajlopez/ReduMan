@@ -39,6 +39,19 @@ exports['add two reducer using when'] = function (test) {
     test.equal(r(42, 'foo'), 42);
 };
 
+exports['add two reducer using when and value filter (not object)'] = function (test) {
+    var r = reduman()
+        .when(INCREMENT, function (state, data) { return state + 1 })
+        .when(DECREMENT, function (state, data) { return state - 1 });
+    
+    test.ok(r);
+    test.equal(typeof r, 'function');
+    
+    test.equal(r(0, INCREMENT), 1);
+    test.equal(r(9, DECREMENT), 8);
+    test.equal(r(42, 'foo'), 42);
+};
+
 exports['using otherwise'] = function (test) {
     var r = reduman()
         .when({ type: INCREMENT }, function (state, data) { return state + 1 })
