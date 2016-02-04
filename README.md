@@ -42,6 +42,14 @@ When you use an object as first argument to `when` the incoming data is matches 
 that object.
 
 When you use a simple value as first argument to `when` the incoming data is compared using `===` with that value.
+Example, you can use strings or numbers as action values:
+
+```
+var reducer = reduman()
+    .when("INCREMENT", function (state, action) ... )
+    .when("DECREMENT", function (state, action) ... )
+    .otherwise(function (state, action) .. );
+```
 
 You can use a predicate function with signature (action) => boolean:
 
