@@ -28,9 +28,9 @@ Creating a reducer using fluent API:
 
 ```js
 var reducer = reduman()
-    .when({ type: INCREMENT }, function (state, data) ... )
-    .when({ type: INCREMENT}, function (state, data) ... )
-    .otherwise(function (state, data) .. );
+    .when({ type: INCREMENT }, function (state, action) ... )
+    .when({ type: INCREMENT}, function (state, action) ... )
+    .otherwise(function (state, action) .. );
     
 // using with a Redux store
 var store = createStore(reducer);
@@ -43,10 +43,10 @@ that object.
 
 When you use a simple value as first argument to `when` the incoming data is compared using `===` with that value.
 
-You can use a predicate function with signature (data) => boolean:
+You can use a predicate function with signature (action) => boolean:
 
 ```
-reduman().when(function (data) ...,  function (state, data) ...)
+reduman().when(function (action) ...,  function (state, action) ...)
 ```
 
 See tests for use examples.
