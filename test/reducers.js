@@ -107,3 +107,15 @@ exports['using otherwise'] = function (test) {
     test.equal(r(42, 'foo'), 0);
 };
 
+exports['compose reducers with use'] = function (test) {
+    var r0 = reduman()
+        .when(DECREMENT, function (state, data) { return state - 1 });
+        
+    var r = reduman()
+        .use(r0)
+        .when(INCREMENT, function (state, data) { return state + 1 });       
+    
+    test.equal(r(0, INCREMENT), 1);
+    test.equal(r(9, DECREMENT), 8);
+    test.equal(r(42, 'foo'), 42);
+};
