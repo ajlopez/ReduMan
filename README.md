@@ -38,12 +38,18 @@ var store = createStore(reducer);
 
 The default action (if no otherwise is specified) is to return the original state.
 
+When you use an object as first argument to `when` the incoming data is matches (property by property usign `===`) with
+that object.
+
+When you use a simple value as first argument to `when` the incoming data is compared using `===` with that value.
+
 You can use a predicate function with signature (data) => boolean:
 
 ```
 reduman().when(function (data) ...,  function (state, data) ...)
 ```
 
+See tests for use examples.
 
 ## Samples
 
