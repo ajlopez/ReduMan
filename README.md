@@ -20,7 +20,30 @@ Reference in your program
 var reduman = require('reduman');
 ```
 
+Reference in your browser
+
 TBD
+
+Creating a reducer using fluent API:
+
+```js
+var reducer = reduman()
+    .when({ type: INCREMENT }, function (state, data) ... )
+    .when({ type: INCREMENT}, function (state, data) ... )
+    .otherwise(function (state, data) .. );
+    
+// using with a Redux store
+var store = createStore(reducer);
+```
+
+The default action (if no otherwise is specified) is to return the original state.
+
+You can use a predicate function with signature (data) => boolean:
+
+```
+reduman().when(function (data) ...,  function (state, data) ...)
+```
+
 
 ## Samples
 
