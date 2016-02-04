@@ -63,6 +63,7 @@ exports['add two reducer using type value'] = function (test) {
     test.equal(r(0, { type: INCREMENT }), 1);
     test.equal(r(9, { type: DECREMENT }), 8);
     test.equal(r(42, 'foo'), 42);
+    test.equal(r(42, null), 42);
 };
 
 exports['using predicate functions in when'] = function (test) {
