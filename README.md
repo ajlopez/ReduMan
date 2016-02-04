@@ -1,6 +1,6 @@
 # ReduMan
 
-Reducer manager, it can be used as a replace for switch in Redux reducers, WIP
+Reducer manager, it can be used as a replace for switch in Redux reducers
 
 ## Installation
 
