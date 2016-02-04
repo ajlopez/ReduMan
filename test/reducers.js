@@ -66,6 +66,20 @@ exports['add two reducer using type value'] = function (test) {
     test.equal(r(42, null), 42);
 };
 
+exports['chain two reducers'] = function (test) {
+    var r = reduman()
+        .when(INCREMENT, function (state, data) { return state + 1 })
+        .when(INCREMENT, function (state, data) { return state * 2 });
+    
+    test.ok(r);
+    test.equal(typeof r, 'function');
+    
+    test.equal(r(3, { type: INCREMENT }), 8);
+    test.equal(r(8, { type: DECREMENT }), 8);
+    test.equal(r(42, 'foo'), 42);
+    test.equal(r(42, null), 42);
+};
+
 exports['using predicate functions in when'] = function (test) {
     var r = reduman()
         .when(function (data) { return data === INCREMENT; }, function (state, data) { return state + 1 })
