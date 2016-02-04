@@ -55,9 +55,9 @@ See tests for use examples.
 
 TBD
 
-## References
+## Versions
 
-TBD
+- 0.0.1 Published
 
 ## Contribution
 
