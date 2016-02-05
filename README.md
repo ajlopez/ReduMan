@@ -61,6 +61,20 @@ You can use a predicate function with signature (action) => boolean:
 reduman().when(function (action) ...,  function (state, action) ...)
 ```
 
+Compose reducers:
+
+```
+var reducer0 = redman()
+    .when(...)
+var reducer = reduman()
+    .use(reducer0)    // add reducer0 to the chain at this point
+    .when(...)
+```
+
+`reducer0` will be invoked during the process of an action. You can mix `use` with `when`.
+In this way, a reducer can be build isolated of other reducers.
+
+
 See tests for use examples.
 
 ## Samples
@@ -71,6 +85,7 @@ TBD
 
 - 0.0.1 Published
 - 0.0.2 Published, filter by implicit type property
+- 0.0.3 Published, using use to compose reducers
 
 ## Contribution
 
